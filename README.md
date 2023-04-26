@@ -1,4 +1,4 @@
-# ChatGPT Meme Generation
+# ![](https://user-images.githubusercontent.com/3071208/234504463-0ef1dfef-921d-48ca-9866-d4c61f570442.png) ChatGPT Meme Generation
 
 generate memes from chatGPT ai prompt
 
