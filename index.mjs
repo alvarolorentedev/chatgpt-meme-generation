@@ -10,7 +10,7 @@ const imgflip = new Imgflip({
 const createMemes = async (prompts) => {
   return await Promise.allSettled(prompts.map(async (prompt, index) => {
     return await imgflip.meme(Number(prompt.template_id).toString(), {
-      captions: prompt.captions,
+      captions: ["", prompt.caption],
       path: `memes/meme_${randomUUID()}.png`
     })
   }))
