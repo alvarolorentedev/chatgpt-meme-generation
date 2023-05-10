@@ -6,14 +6,12 @@ generate memes from chatGPT ai prompt
 
 1. Ask chatGPT for some captions with this prompt:
 ```
-Create content for 5 memes. All the memes have to be related to the importance of software observability.
-The response needs to be a json array of objects each with the next fields:
-- meme template id number from imgflip as string in a field called template_id.
-- A single string in a field called caption representing the text of the caption.
-Also follow the next rules when creating each meme content:
+generate 5 meme caption for tarant following the next rules for each meme content:
 - Each meme needs to use a diferent template.
-- Use meme templates that expect only one caption.
 - Each meme needs to use the specific punchline of the template being used.
+The response needs to be a json array of objects each with the next fields:
+- meme template name from imgflip as string in a field called template_name.
+- An array of captions representing the captions for a single meme.
 ```
 2. Save the json resunt it in a file called `propmt.json` in the root of this project.
 3. Add your imgFLIP credentials as environment variables in the shell:
