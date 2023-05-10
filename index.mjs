@@ -8,12 +8,11 @@ const imgflip = new Imgflip({
   })
 
 const createMemes = async (prompts) => {
-  return await Promise.allSettled(prompts.map(async (prompt, index) => {
-    return await imgflip.meme(Number(prompt.template_id).toString(), {
-      captions: ["", prompt.caption],
-      path: `memes/meme_${randomUUID()}.png`
-    })
-  }))
+  const memes = (await imgflip.memes()).reduce((acc, val) => ({...acc, [val.name.toLowerCase()]: val.id}),{})
+  return Promise.allSettled(prompts.map((prompt) => imgflip.meme(memes[prompt.template_name.toLowerCase().replace(/-/g, " ")], {
+      captions: prompt.captions,
+      path: `memes/${randomUUID()}_#meme.png`
+    })))
 }
 
 createMemes(prompt).then(console.log)
